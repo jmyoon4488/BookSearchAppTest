@@ -1,4 +1,4 @@
-# Book Search App for Sendbird
+# Book Search App
 
 ## 요구사항
 1. [도서검색앱] 구현
