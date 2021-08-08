@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">BookSearch</string>
+
+    <string name="book_detail_text_price">Price</string>
+    <string name="book_detail_text_rating">Rating</string>
+    <string name="book_detail_text_author">Author</string>
+    <string name="book_detail_text_publisher">Publisher</string>
+    <string name="book_detail_text_published">Published</string>
+    <string name="book_detail_text_pages">Pages</string>
+    <string name="book_detail_text_language">Language</string>
+    <string name="book_detail_text_format">Format</string>
+    <string name="book_detail_text_isbn_10">ISBN-10</string>
+    <string name="book_detail_text_isbn_13">ISBN-13</string>
+    <string name="book_detail_text_link">LINK</string>
+
+    <string name="book_detail_text_description">Description</string>
 </resources>
