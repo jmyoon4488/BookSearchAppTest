@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="bookItem"
+            type="com.jm4488.booksearch.search.model.BookDetailModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#333333"
+        >
+
+        <TextView
+            android:id="@+id/tv_price_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@string/book_detail_text_price"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tv_rating_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@string/book_detail_text_rating"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_price_text"
+            />
+
+        <TextView
+            android:id="@+id/tv_author_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@string/book_detail_text_author"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_rating_text"
+            />
+
+        <TextView
+            android:id="@+id/tv_publisher_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@string/book_detail_text_publisher"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_author_text"
+            />
+
+        <TextView
+            android:id="@+id/tv_published_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@string/book_detail_text_published"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_publisher_text"
+            />
+
+        <TextView
+            android:id="@+id/tv_pages_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@string/book_detail_text_pages"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_published_text"
+            />
+
+        <TextView
+            android:id="@+id/tv_language_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@string/book_detail_text_language"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_pages_text"
+            />
+
+        <TextView
+            android:id="@+id/tv_isbn_10_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@string/book_detail_text_isbn_10"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_language_text"
+            />
+
+        <TextView
+            android:id="@+id/tv_isbn_13_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@string/book_detail_text_isbn_13"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_isbn_10_text"
+            />
+
+        <TextView
+            android:id="@+id/tv_link_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@string/book_detail_text_link"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_isbn_13_text"
+            />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@+id/tv_published_text"
+            />
+
+        <TextView
+            android:id="@+id/tv_price_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@{bookItem.price}"
+            tools:text="TEST"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@+id/tv_price_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_price_text"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            />
+
+        <TextView
+            android:id="@+id/tv_rating_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@{bookItem.rating}"
+            tools:text="TEST"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@+id/tv_rating_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_rating_text"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            />
+
+        <TextView
+            android:id="@+id/tv_author_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@{bookItem.authors}"
+            tools:text="TEST"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@+id/tv_author_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_author_text"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            />
+
+        <TextView
+            android:id="@+id/tv_publisher_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@{bookItem.publisher}"
+            tools:text="TEST"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@+id/tv_publisher_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_publisher_text"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            />
+
+        <TextView
+            android:id="@+id/tv_published_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@{bookItem.year}"
+            tools:text="TEST"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@+id/tv_published_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_published_text"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            />
+
+        <TextView
+            android:id="@+id/tv_pages_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@{bookItem.pages}"
+            tools:text="TEST"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@+id/tv_pages_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_pages_text"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            />
+
+        <TextView
+            android:id="@+id/tv_language_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@{bookItem.language}"
+            tools:text="TEST"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@+id/tv_language_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_language_text"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            />
+
+
+        <TextView
+            android:id="@+id/tv_isbn_10_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@{bookItem.isbn10}"
+            tools:text="TEST"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@+id/tv_isbn_10_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_isbn_10_text"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            />
+
+        <TextView
+            android:id="@+id/tv_isbn_13_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@{bookItem.isbn13}"
+            tools:text="TEST"
+            android:maxLines="1"
+            android:ellipsize="end"
+            app:layout_constraintTop_toTopOf="@+id/tv_isbn_13_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_isbn_13_text"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            />
+
+        <TextView
+            android:id="@+id/tv_link_value"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/BasicBookText"
+            android:text="@{bookItem.url}"
+            tools:text="TEST"
+            android:linksClickable="true"
+            android:autoLink="web"
+            app:layout_constraintTop_toTopOf="@+id/tv_link_text"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_link_text"
+            app:layout_constraintStart_toStartOf="@id/guideline"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -7,16 +7,13 @@ import android.widget.LinearLayout
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.SimpleItemAnimator
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.jm4488.booksearch.databinding.ActivityBookSearchBinding
-import com.jm4488.booksearch.search.model.BookItemModel
 import com.jm4488.booksearch.search.view.adapter.BookSearchAdapter
 import com.jm4488.booksearch.search.view.adapter.OnLoadMoreListener
 import com.jm4488.booksearch.search.viewmodel.BookListViewModel
 
 class BookSearchListActivity : AppCompatActivity() {
+    val TAG = this.javaClass.name
 
     // https://api.itbook.store/1.0/search/android/1
     private lateinit var binding: ActivityBookSearchBinding
@@ -41,8 +38,10 @@ class BookSearchListActivity : AppCompatActivity() {
     private fun initLayout() {
         binding.btnSearch.setOnClickListener {
             showLoading()
+            listAdapter.bookList.clear()
             viewModel.searchBooks(binding.etSearchKeyword.text.toString())
         }
+
         binding.btnGoToTop.setOnClickListener {
             binding.rvBookList.smoothScrollToPosition(0)
         }
@@ -54,17 +53,12 @@ class BookSearchListActivity : AppCompatActivity() {
         val decoration = DividerItemDecoration(this, LinearLayout.VERTICAL)
         binding.rvBookList.addItemDecoration(decoration)
         binding.rvBookList.adapter = listAdapter
-        binding.rvBookList.itemAnimator?.let {
-            when (it) {
-                is SimpleItemAnimator -> it.supportsChangeAnimations = false
-            }
-        }
     }
 
     private fun addObserver() {
-        viewModel.bookListResponseLiveData.observe(this, Observer {
+        viewModel.bookListLiveData.observe(this, Observer {
             hideLoading()
-            val booksList = it.books
+            val booksList = it
             if (booksList.isEmpty()) return@Observer
 
             listAdapter.addItems(booksList)
@@ -72,14 +66,11 @@ class BookSearchListActivity : AppCompatActivity() {
         })
     }
 
-    private fun SwipeRefreshLayout.convertStateEnable(flag: Boolean) {
-        this.isEnabled = flag
-        this.isRefreshing = !flag
-    }
-
     private val loadMoreListener = object : OnLoadMoreListener {
         override fun onLoadMore() {
-            viewModel.searchBooksNext(binding.etSearchKeyword.text.toString())
+            if (viewModel.bookTotalCount > listAdapter.itemCount) {
+                viewModel.searchBooksNext()
+            }
         }
     }
 
