@@ -15,7 +15,6 @@ import com.jm4488.booksearch.search.viewmodel.BookListViewModel
 class BookSearchListActivity : AppCompatActivity() {
     val TAG = this.javaClass.name
 
-    // https://api.itbook.store/1.0/search/android/1
     private lateinit var binding: ActivityBookSearchBinding
     private lateinit var viewModel: BookListViewModel
     private lateinit var listAdapter: BookSearchAdapter
